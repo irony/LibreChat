@@ -148,7 +148,7 @@ const LoginForm: React.FC<TLoginFormProps> = ({ onSubmit, startupConfig, error, 
             aria-label={localize('com_auth_continue')}
             data-testid="login-button"
             type="submit"
-            className="button-primary w-full rounded-2xl px-4 py-3 text-sm font-medium text-white transition-colors"
+            className="button-primary w-full rounded-2xl px-4 py-3 text-sm font-medium font-semibold text-white transition-colors"
           >
             {localize('com_auth_continue')}
           </button>
