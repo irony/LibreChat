@@ -1561,7 +1561,7 @@ html {
 .group:hover .group-hover\:visible {
   visibility: visible;
 }
-.group:hover .group-hover\:from-\[\#2A2B32\] {
+.group:hover .group-hover\:from-\[#2A2B32\] {
   --tw-gradient-from: #2a2b32;
   --tw-gradient-to: rgba(42, 43, 50, 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
@@ -1629,7 +1629,7 @@ html {
 .form-multiselect:focus,
 .form-select:focus,
 .form-textarea:focus {
-  --tw-ring-inset: var(--tw-empty, /*!*/ /*!*/);
+  --tw-ring-inset: var(--tw-empty, /*! */ /*! */);
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: #2563eb;
@@ -1867,8 +1867,7 @@ button.scroll-convo {
 }
 
 @-webkit-keyframes pulseSize {
-  0%,
-  to {
+  0%, to {
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
   }
@@ -1878,8 +1877,7 @@ button.scroll-convo {
   }
 }
 @keyframes pulseSize {
-  0%,
-  to {
+  0%, to {
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
   }
@@ -2224,8 +2222,7 @@ button.scroll-convo {
     opacity: 0;
     transform: translateX(20%);
   }
-  85%,
-  100% {
+  85%, 100% {
     opacity: 0;
     transform: translateX(30%);
   }
@@ -2256,8 +2253,7 @@ button.scroll-convo {
     opacity: 0;
     transform: translateY(20%);
   }
-  85%,
-  100% {
+  85%, 100% {
     opacity: 0;
     transform: translateY(30%);
   }
@@ -2274,33 +2270,28 @@ button.scroll-convo {
   5% {
     transform: rotate(67deg) scale(1);
   }
-  6%,
-  20% {
+  6%, 20% {
     transform: rotate(57deg) scale(1);
   }
   22% {
     transform: rotate(65deg) scale(1);
   }
-  26%,
-  40% {
+  26%, 40% {
     transform: rotate(-33deg) scale(1);
   }
   42% {
     transform: rotate(-40deg) scale(1);
   }
-  45%,
-  75% {
+  45%, 75% {
     transform: rotate(30deg) scale(0.7);
   }
-  77%,
-  85% {
+  77%, 85% {
     transform: rotate(57deg) scale(1);
   }
   87% {
     transform: rotate(65deg) scale(1);
   }
-  90%,
-  100% {
+  90%, 100% {
     transform: rotate(-33deg) scale(1);
   }
 }
@@ -2327,8 +2318,7 @@ button.scroll-convo {
     transform: translate(0, 0px) rotate(34deg);
     opacity: 1;
   }
-  60%,
-  100% {
+  60%, 100% {
     transform: translate(0, 0px) rotate(34deg);
     opacity: 1;
   }
@@ -2356,8 +2346,7 @@ button.scroll-convo {
     transform: translateY(0px);
     opacity: 1;
   }
-  60%,
-  100% {
+  60%, 100% {
     transform: translateY(0px);
     opacity: 1;
   }
