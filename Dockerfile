@@ -26,7 +26,7 @@ RUN \
     npm prune --production; \
     npm cache clean --force
 
-RUN mkdir -p /app/client/public/images /app/api/logs
+RUN mkdir -p /app/client/public/images /app/api/logs && chmod 777 /app/api/logs
 
 # Node API setup
 EXPOSE 3080
