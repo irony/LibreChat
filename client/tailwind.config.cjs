@@ -54,12 +54,25 @@ module.exports = {
           200: '#a6e5d6',
           300: '#6dc8b9',
           400: '#41a79d',
-          500: '#10a37f',
+          500: '#22c55e', /* Updated to match our success color */
           550: '#349072',
           600: '#126e6b',
           700: '#0a4f53',
           800: '#06373e',
           900: '#031f29',
+        },
+        blue: {
+          500: '#4361ee', /* Primary color */
+          600: '#3b82f6', /* Info color */
+        },
+        purple: {
+          500: '#7209b7', /* Secondary color */
+        },
+        red: {
+          500: '#ff0033', /* Error color */
+        },
+        amber: {
+          500: '#f59e0b', /* Warning color */
         },
         'brand-purple': '#ab68ff',
         'presentation': 'var(--presentation)',
