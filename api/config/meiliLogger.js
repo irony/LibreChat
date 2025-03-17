@@ -1,6 +1,5 @@
 const path = require('path');
 const winston = require('winston');
-require('winston-daily-rotate-file');
 
 const logDir = path.join(__dirname, '..', 'logs');
 
@@ -36,17 +35,7 @@ const fileFormat = winston.format.combine(
   winston.format.splat(),
 );
 
-const transports = [
-  new winston.transports.DailyRotateFile({
-    level: 'debug',
-    filename: `${logDir}/meiliSync-%DATE%.log`,
-    datePattern: 'YYYY-MM-DD',
-    zippedArchive: true,
-    maxSize: '20m',
-    maxFiles: '14d',
-    format: fileFormat,
-  }),
-];
+const transports = [];
 
 // if (NODE_ENV !== 'production') {
 //   transports.push(
