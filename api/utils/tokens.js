@@ -50,7 +50,7 @@ const cohereModels = {
 const googleModels = {
   /* Max I/O is combined so we subtract the amount from max response tokens for actual total */
   gemini: 30720, // -2048 from max
-  'gemma-3-27b-it': 100000,
+  'gemma-3-27b-it': 32000,
   'gemini-pro-vision': 12288,
   'gemini-exp': 2000000,
   'gemini-2.0': 2000000,
