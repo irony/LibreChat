@@ -60,6 +60,7 @@ const cohereModels = {
 
 const googleModels = {
   /* Max I/O is combined so we subtract the amount from max response tokens for actual total */
+  google: 8196,
   gemma: 8196,
   'gemma-2': 32768,
   'gemma-3': 32768,
@@ -238,7 +239,7 @@ const modelMaxOutputs = {
   o1: 32268, // -500 from max: 32,768
   'o1-mini': 65136, // -500 from max: 65,536
   'o1-preview': 32268, // -500 from max: 32,768
-  system_default: 1024,
+  system_default: 8196,
 };
 
 /** Outputs from https://docs.anthropic.com/en/docs/about-claude/models/all-models#model-names */
