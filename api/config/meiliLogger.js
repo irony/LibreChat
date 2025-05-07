@@ -3,7 +3,11 @@ const winston = require('winston');
 
 const logDir = path.join(__dirname, '..', 'logs');
 
-const { NODE_ENV } = process.env;
+const { NODE_ENV, DEBUG_LOGGING = false } = process.env;
+
+const useDebugLogging =
+  (typeof DEBUG_LOGGING === 'string' && DEBUG_LOGGING?.toLowerCase() === 'true') ||
+  DEBUG_LOGGING === true;
 
 const levels = {
   error: 0,
@@ -36,14 +40,6 @@ const fileFormat = winston.format.combine(
 );
 
 const transports = [];
-
-// if (NODE_ENV !== 'production') {
-//   transports.push(
-//     new winston.transports.Console({
-//       format: winston.format.combine(winston.format.colorize(), winston.format.simple()),
-//     }),
-//   );
-// }
 
 const consoleFormat = winston.format.combine(
   winston.format.colorize({ all: true }),
