@@ -89,6 +89,16 @@ function SelectDropDown({
   }
   const values = availableValues ?? [];
 
+  // Auto-select if only one option available
+  React.useEffect(() => {
+    if (values.length === 1 && !value && setValue) {
+      const singleValue = values[0];
+      if (typeof setValue === 'function') {
+        setValue(singleValue);
+      }
+    }
+  }, [values, value, setValue]);
+
   // Enable searchable select if enough items are provided.
   const [filteredValues, searchRender] = useMultiSearch<string[] | Option[]>({
     availableOptions: values,

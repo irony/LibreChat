@@ -45,6 +45,14 @@ function SelectDropDownPop({
     title = localize('com_ui_model');
   }
 
+  // Auto-select if only one option available
+  React.useEffect(() => {
+    if (availableValues.length === 1 && !value && setValue) {
+      const singleValue = availableValues[0];
+      setValue(singleValue);
+    }
+  }, [availableValues, value, setValue]);
+
   // Detemine if we should to convert this component into a searchable select.  If we have enough elements, a search
   // input will appear near the top of the menu, allowing correct filtering of different model menu items. This will
   // reset once the component is unmounted (as per a normal search)
