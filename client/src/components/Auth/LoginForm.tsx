@@ -1,10 +1,11 @@
-import { useForm } from 'react-hook-form';
 import React, { useState, useEffect, useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import { Turnstile } from '@marsidev/react-turnstile';
+import { ThemeContext, Spinner, Button } from '@librechat/client';
 import type { TLoginUser, TStartupConfig } from 'librechat-data-provider';
 import type { TAuthContext } from '~/common';
 import { useResendVerificationEmail, useGetStartupConfig } from '~/data-provider';
-import { ThemeContext, useLocalize } from '~/hooks';
+import { useLocalize } from '~/hooks';
 
 type TLoginFormProps = {
   onSubmit: (data: TLoginUser) => void;
@@ -16,12 +17,11 @@ type TLoginFormProps = {
 const LoginForm: React.FC<TLoginFormProps> = ({ onSubmit, startupConfig, error, setError }) => {
   const localize = useLocalize();
   const { theme } = useContext(ThemeContext);
-
   const {
     register,
     getValues,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<TLoginUser>();
   const [showResendLink, setShowResendLink] = useState<boolean>(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
@@ -166,15 +166,15 @@ const LoginForm: React.FC<TLoginFormProps> = ({ onSubmit, startupConfig, error, 
         )}
 
         <div className="mt-6">
-          <button
+          <Button
             aria-label={localize('com_auth_continue')}
             data-testid="login-button"
             type="submit"
             className="button-primary w-full rounded-2xl px-4 py-3 text-sm font-medium font-semibold text-white transition-colors"
-            disabled={requireCaptcha && !turnstileToken}
+            disabled={requireCaptcha && !turnstileToken || isSubmitting}
           >
-            {localize('com_auth_continue')}
-          </button>
+            {isSubmitting ? <Spinner /> : localize('com_auth_continue')}
+          </Button>
         </div>
       </form>
     </>
