@@ -1,0 +1,107 @@
+# LibreChat Configuration for Berget API
+# Version: 1.3.6
+
+version: 1.3.6
+cache: true
+
+# Interface configuration
+interface:
+  customWelcome: 'Välkommen till Berget Chat! Njut av din upplevelse.'
+  fileSearch: true
+  privacyPolicy:
+    externalUrl: 'https://berget.ai/privacy-policy'
+    openNewTab: true
+  termsOfService:
+    externalUrl: 'https://berget.ai/tos'
+    openNewTab: true
+    modalAcceptance: true
+    modalTitle: 'Användarvillkor för Berget Chat'
+    modalContent: |
+      # Användarvillkor för Berget Chat
+
+      *Giltigt från: 3 april 2026*
+
+      Genom att använda Berget Chat godkänner du dessa användarvillkor och vår integritetspolicy.
+
+  endpointsMenu: true
+  modelSelect: true
+  parameters: true
+  sidePanel: true
+  presets: true
+  prompts:
+    use: true
+    create: true
+    share: false
+    public: false
+  bookmarks: true
+  multiConvo: true
+  agents:
+    use: true
+    create: true
+    share: false
+    public: false
+  peoplePicker:
+    users: true
+    groups: true
+    roles: true
+  marketplace:
+    use: false
+  fileCitations: true
+
+# Custom endpoints configuration
+endpoints:
+  custom:
+    # Berget API - Main endpoint with all models
+    # Uses Keycloak token for authentication via {{LIBRECHAT_OPENID_ACCESS_TOKEN}}
+    - name: 'Berget'
+      apiKey: '{{LIBRECHAT_OPENID_ACCESS_TOKEN}}'
+      baseURL: 'https://api.berget.ai/v1'
+      models:
+        default:
+          # GLM Models
+          - 'GLM-4.7'
+          - 'GLM-4.6'
+          - 'GLM-4.5'
+          - 'GLM-4'
+          # GPT-OSS Models
+          - 'GPT-OSS'
+          # Gemma Models
+          - 'Gemma-4'
+          - 'Gemma-3'
+          - 'Gemma-2'
+          # Llama Models
+          - 'Llama-3.3'
+          - 'Llama-3.1'
+          # Mistral Models
+          - 'Mistral-Small'
+        fetch: true
+      titleConvo: true
+      titleModel: 'GPT-OSS'
+      modelDisplayLabel: 'Berget'
+      dropParams: ['stop', 'user', 'frequency_penalty', 'presence_penalty']
+
+# Rate limits configuration
+rateLimits:
+  fileUploads:
+    ipMax: 100
+    ipWindowInMinutes: 60
+    userMax: 50
+    userWindowInMinutes: 60
+  conversationsImport:
+    ipMax: 100
+    ipWindowInMinutes: 60
+    userMax: 50
+    userWindowInMinutes: 60
+
+# Agent Actions domain restrictions
+actions:
+  allowedDomains:
+    - 'berget.ai'
+    - 'api.berget.ai'
+
+# MCP Server domain restrictions
+mcpSettings:
+  allowedDomains:
+    - 'host.docker.internal'
+    - 'localhost'
+    - '*.berget.ai'
